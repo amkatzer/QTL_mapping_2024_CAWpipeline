@@ -60,6 +60,11 @@ Get samples names from vcf into a text file: bcftools query -l input.vcf > sampl
 
 For all of the python scripts downstream, check what the format is of your initial VCF output file. If you do head -n 50 NB.vcf you should see something like this: GT:AD:DP:GQ:PL. You will have to change the called order of these in all the downstream scripts if yours is in a different order. 
 
+Filter on Quality score
+```
+vcftools --vcf NB.vcf --out NB_Q30 --minQ 30 --stdout > NB_Q30.vcf
+```
+
 ## Steps 6-10 will require you to edit the filenames & number of F2s within each of the scripts
 
 ### Step 6: Subset vcf to those that are phenotyped
