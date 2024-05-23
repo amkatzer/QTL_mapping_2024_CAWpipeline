@@ -48,7 +48,7 @@ You will need to make a conda environment for gatk/3.8.0.
 
 Edit script to add in your samples. Script: gatk_NB.sh
 
--> an easy way to make the -I NB#.bam\ for every sample is copying the sample names in winscp as described above into excel. In a column to the left of the sample names, write " -I " (be sure to include the spaces, but not the "). In the column to the right, write "\". Then in another column use the function concat() with the three columns. Copy and paste to get values rather than the function in a new column. 
+-> an easy way to make the -I NB#.bam\ for every sample is copying the sample names in winscp as described above into excel. In a column to the left of the sample names, write " -I " (be sure to include the spaces, but not the "). In the column to the right, write a backslash. Then in another column use the function concat() with the three columns. Copy and paste to get values rather than the function in a new column. 
 
 Argument for memory is a Java argument. It looks like this in the script: -Xmx15G which indicates 15 GB mem
 
