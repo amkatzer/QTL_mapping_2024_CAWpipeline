@@ -58,12 +58,27 @@ Get samples names from vcf into a text file: bcftools query -l input.vcf > sampl
 
 ### Step 5 extra! Checking the format of the output vcf
 
+VCF data explanation: https://en.wikipedia.org/wiki/Variant_Call_Format
+
 For all of the python scripts downstream, check what the format is of your initial VCF output file. If you do head -n 50 NB.vcf you should see something like this: GT:AD:DP:GQ:PL. You will have to change the called order of these in all the downstream scripts if yours is in a different order. 
 
 Filter on Quality score
 ```
-vcftools --vcf NB.vcf --out NB_Q30 --minQ 30 --stdout > NB_Q30.vcf
+bcftools filter -e 'INFO/MQ < 30' -O v -o Q30_NB.vcf NB.vcf
 ```
+
+flags:
+
+  -e -> exclude
+  
+  -O -> output format type (v is an uncompressed vcf)
+  
+  -o -> output name
+
+
+bcftools expressions explanation: https://samtools.github.io/bcftools/bcftools.html#expressions
+
+bcftools filter function: https://samtools.github.io/bcftools/bcftools.html#filter
 
 ## Steps 6-10 will require you to edit the filenames & number of F2s within each of the scripts
 
