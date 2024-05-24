@@ -94,6 +94,18 @@ subtract 2 from the output and edit the python script
 
 python step5_filterVCF.HSpop1.py
 
+First round filter by 1 F2 individual then run the calc.sample.coverage.from.vcf.py script. Then graph:
+```
+module load R
+R
+data <- read.table("./20240523_Q30_1individ.sample.coverage.txt", header=T)
+pdf("20240524_Q30_1individ_sites_hetfreq.pdf")
+plot(data$sites, data$het_freq)
+dev.off()
+```
+
+Run step5_filterVCF.HSpop1.py now with the amount of F2 individuals you would like such as 100.
+
 ### Step 8: find best snp then thin
 
 Script to run first is finding the best snp: find.bestsnp.py
