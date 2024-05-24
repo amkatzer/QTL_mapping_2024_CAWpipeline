@@ -80,6 +80,18 @@ bcftools expressions explanation: https://samtools.github.io/bcftools/bcftools.h
 
 bcftools filter function: https://samtools.github.io/bcftools/bcftools.html#filter
 
+Extract out the MQ scores and make sure everything worked!
+```
+bcftools query -f '%CHROM %POS %INFO/MQ \n' Q30_NB.vcf > Q30_MQ_info.txt
+
+module load R
+R
+data <- read.table("Q30_MQ_info.txt", header=F)
+pdf("MQ_scores_post_filter.pdf")
+hist(data$V3)
+dev.off()
+```
+
 ## Steps 6-10 will require you to edit the filenames & number of F2s within each of the scripts
 
 ### Step 6: Subset vcf to those that are phenotyped
