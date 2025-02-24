@@ -20,6 +20,8 @@ Delete anything with no data in the file to clean up the folder. I used the wins
 ### Step 3: make a sample list from the remaining outputs from the concatenation script
 I used winscp gui again and copied the names (highlight all files -> right click -> file names -> copy to clipboard)
 
+Alternatively ls > testNames.txt when in the directory with all the samples
+
 Save into a text file called testNames.txt.
 
 ### Step 4: use the python script to make scripts to run bwa-mem, samtools, and picard (adds read group info) for each sample
